@@ -1,12 +1,13 @@
 package src;
 
+
 import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
         // вітання
-        new Welcom().welcome();
+        new Welcome().welcome();
         //запуск проги
-        new Menu.run();
+        new Menu().start();
     }
 }
