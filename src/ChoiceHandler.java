@@ -1,9 +1,8 @@
 package src;
 
-import java.awt.*;
 import java.util.Scanner;
 
-public class Operation {
+public class ChoiceHandler {
     private final String OFFER_OF_CHOICE = """
             Select the required operation.
             Enter the number of the corresponding operation and press Enter.:""";
@@ -19,7 +18,7 @@ public class Operation {
     private final String CHOICE_EXIT = "\nYou have chosen to exit the program. Goodbye!";
     private int select;
 
-    public int operationSelection() {
+    public int choiceHandler() {
         System.out.println(OFFER_OF_CHOICE);
         System.out.println(MENU_CHOICE);
         Scanner scanner = new Scanner(System.in);
@@ -39,7 +38,7 @@ public class Operation {
             }
             default -> {
                 System.out.println(ERROR_CHOICE);
-                operationSelection();
+                ChoiceHandler();
             }
         }
         return select;
