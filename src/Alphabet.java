@@ -23,7 +23,7 @@ public class Alphabet {
         return alphabetWithPunctuation;
     }
 
-    public int getLengthAWP() {
+    public int getLengthAlphabetWithPunctuation() {
         return alphabetWithPunctuation.size();
     }
 }
