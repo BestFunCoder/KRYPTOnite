@@ -36,9 +36,9 @@ public class ReadFile {
 
         if (Files.exists(path) && path.toString().endsWith(".txt")) {
             System.out.println(PROMPT_TO_SELECT_FILE);
-            try (BufferedReader br = new BufferedReader(new FileReader(path.toString()))) {
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path.toString()))) {
                 String line;
-                while ((line = br.readLine()) != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     char[] chars = line.toCharArray();
                     for (char c : chars) {
                         arrayCharSourceFile.add(c);
