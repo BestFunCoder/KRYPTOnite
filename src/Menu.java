@@ -1,17 +1,42 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Menu {
 
-           int operationSelect;
+    ArrayList<Character> arrayListSourceFile = new ArrayList<>();
+    int choiceHandler;
 
-        public void start() {
-            // Вибір операції - шифрування або розшифрування
-            operationSelect = new Operation().operationSelection();
-            switch (operationSelect) {
-                case 1 -> encryptRun();
+    int yourShiftKey;
+
+    public void start() {
+        // Вибір операції - шифрування або розшифрування
+        choiceHandler = new ChoiceHandler().choiceHandler();
+        switch (choiceHandler) {
+            case 1 -> encryptRun();
                /* case 2 -> decryptRun();
-                case 3 -> starting();
+                case 3 -> start();
                 case 4 -> System.exit(0);*/
-            }
         }
+    }
+
+    public void encryptRun() {
+        ReadFile readFile = new ReadFile();
+        arrayListSourceFile = readFile.readFileToChar();
+
+        SelectKeyEncryption selectKeyEncryption = new SelectKeyEncryption();
+        yourShiftKey = selectKeyEncryption.selectKey();
+
+         TextEncryptionProcessor textEncryptionProcessor  = new TextEncryptionProcessor(arrayListSourceFile, yourShiftKey);
+
+        ArrayList<Character> arrayListEncryptFile;
+        arrayListEncryptFile = encryptionProcess.encrypt1();
+
+        WriteFile writeFile = new WriteFile(arrayListEncryptFile);
+        writeFile.selectDirectoryFromWrite();
+
+        EndMenu endMenu = new EndMenu();
+        endMenu.operationSelection();
+
+    }
 }
